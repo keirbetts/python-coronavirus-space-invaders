@@ -1,4 +1,3 @@
-# import tkinter as tk
 from tkinter import PhotoImage
 import turtle
 from turtle import Turtle, Screen, Shape
@@ -10,6 +9,10 @@ import random
 window = turtle.Screen()
 window.bgcolor('black')
 window.title('Space Invaders')
+
+gameover = turtle.Screen()
+window.bgcolor('black')
+window.title('Game Over')
 
 
 border = turtle.Turtle()
@@ -40,8 +43,8 @@ score_pen.hideturtle()
 
 player = turtle.Turtle()
 smallerPlayer = PhotoImage(file='boris.gif').subsample(3, 3)
-window.addshape('smaller', Shape('image', smallerPlayer))
-player.shape('smaller')
+window.addshape('larger', Shape('image', smallerPlayer))
+player.shape('larger')
 player.penup()
 player.speed(0)
 player.setposition(0, -250)
@@ -50,7 +53,7 @@ player.setheading(90)
 playerspeed = 15
 
 
-enemies = 5
+enemies = 10
 enemies_list = []
 
 for i in range(enemies):
@@ -70,8 +73,6 @@ enemyspeed = 2
 
 
 bullet = turtle.Turtle()
-# smallerBullet = PhotoImage(file='vaccine.gif').subsample(3, 3)
-# window.addshape('smaller', Shape('image', smallerBullet))
 bullet.color('red')
 bullet.shape('triangle')
 bullet.penup()
@@ -79,7 +80,6 @@ bullet.speed(0)
 bullet.setheading(90)
 bullet.shapesize(0.5, 0.5)
 bullet.hideturtle()
-
 bulletspeed = 30
 bullet_state = 'ready'
 
